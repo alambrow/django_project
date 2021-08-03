@@ -6,4 +6,12 @@
     "python.linting.pylintArgs": [
         "--django-settings-module=<folder name>.settings",
     ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "DB",
+            "database": "db.sqlite3"
+        }
+    ],
 }

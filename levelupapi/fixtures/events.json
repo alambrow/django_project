@@ -1,0 +1,26 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "title": "Chess Match Senior",
+            "date": "2021-08-05",
+            "time": "20:00",
+            "description": "Two on Two matches",
+            "host_id": 1,
+            "game_id": 1
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "title": "Chess Match Junior",
+            "date": "2021-08-05",
+            "time": "20:00",
+            "description": "Two on Two matches",
+            "host_id": 1,
+            "game_id": 1
+        }
+    }
+]
