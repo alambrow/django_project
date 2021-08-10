@@ -77,7 +77,7 @@ class GameView(ViewSet):
         Returns:
             Response -- Empty body with 204 status code
         """
-        gamer = Gamer.objects.get(user=request.auth.user)
+        
 
         # Do mostly the same thing as POST, but instead of
         # creating a new instance of Game, get the game record
