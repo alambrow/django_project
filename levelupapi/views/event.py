@@ -27,7 +27,6 @@ class EventView(ViewSet):
         event.date = request.data["date"]
         event.time = request.data["time"]
         event.description = request.data["description"]
-        event.attendees = request.data["attendees"]
         event.host = gamer
 
         game = Game.objects.get(pk=request.data["game"])
@@ -66,7 +65,6 @@ class EventView(ViewSet):
         event.date = request.data["date"]
         event.time = request.data["time"]
         event.description = request.data["description"]
-        event.attendees = request.data["attendees"]
         event.host = gamer
 
         game = Game.objects.get(pk=request.data["game"])
