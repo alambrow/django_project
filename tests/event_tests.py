@@ -137,13 +137,13 @@ class EventTests(APITestCase):
 
         # TODO: does not show updated data
         
-        # response = self.client.get(f"/events/{event.id}")
-        # json_response = json.loads(response.content)
-        # self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # self.assertEqual(json_response["title"], new_data["title"])
-        # self.assertEqual(json_response["date"], new_data["date"])
-        # self.assertEqual(json_response["time"], new_data["time"])
-        # self.assertEqual(json_response["description"], new_data["description"])
+        response = self.client.get(f"/events/{event.id}")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(json_response["title"], new_data["title"])
+        self.assertEqual(json_response["date"], new_data["date"])
+        self.assertEqual(json_response["time"], new_data["time"])
+        self.assertEqual(json_response["description"], new_data["description"])
 
     def test_delete_event(self):
         data = {
