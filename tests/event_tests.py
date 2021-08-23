@@ -40,20 +40,11 @@ class EventTests(APITestCase):
             "number_of_players": 6,
             "maker": "Milton Bradley"
         }
-
-        # Make sure request is authenticated
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
-
-        # Initiate request and store response
         response = self.client.post(new_url, data, format='json')
-
-        # Parse the JSON in the response body
         json_response = json.loads(response.content)
 
-        # Assert that the game was created
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-        # Assert that the properties on the created resource are correct
         self.assertEqual(json_response["name"], "Clue")
         self.assertEqual(json_response["maker"], "Milton Bradley")
         self.assertEqual(json_response["description"], "Who's the killer?")
@@ -169,3 +160,30 @@ class EventTests(APITestCase):
 
         response = self.client.get(f"/events/{event.id}")
         self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    # def test_join_event(self):
+    #     data = {
+    #         "title": "My event",
+    #         "date": "2021-08-28",
+    #         "time": "11:00:00",
+    #         "description": "My event",
+    #         "host": 1,
+    #         "game": 1
+    #     }
+    #     event = Event()
+    #     event.title = data["title"]
+    #     event.date = data["date"]
+    #     event.time = data["time"]
+    #     event.description = data["description"]
+    #     event.host_id = 1
+    #     event.game_id = 1
+    #     event.save()
+        
+    #     join_data = {
+    #         "event": event.id
+    #     }
+
+    #     url = "/events/{event.id}/signup"
+    #     self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+    #     response = self.client.post(url, join_data, format='json')
+    #     self.assertEqual(response.status_code, status.HTTP_201_CREATED)
