@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LevelUp Reports</title>
+  </head>
+  <body>
+    <h1>User Games</h1>
+
+    {% for game in game_list %}
+        <h2>{{ game.name }}</h2>
+        <h3>{{ game.maker}} </h3>
+        <h3>{{ game.number_of_players }}</h3>
+        <br/>
+    {% endfor %}
+  </body>
+</html>
