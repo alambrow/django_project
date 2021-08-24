@@ -143,7 +143,7 @@ class EventView(ViewSet):
                 event.attendees.add(gamer)
                 return Response({}, status=status.HTTP_201_CREATED)
             except Exception as ex:
-                return Response({'message': ex.args[0]})
+                return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
 
         # User wants to leave a previously joined event
         elif request.method == "DELETE":
@@ -153,7 +153,7 @@ class EventView(ViewSet):
                 event.attendees.remove(gamer)
                 return Response(None, status=status.HTTP_204_NO_CONTENT)
             except Exception as ex:
-                return Response({'message': ex.args[0]})
+                return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 

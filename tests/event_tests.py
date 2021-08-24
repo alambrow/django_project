@@ -1,9 +1,7 @@
 import json
-from levelupapi.models import gamer
-from levelupapi.models.gamer import Gamer
 from rest_framework import status
 from rest_framework.test import APITestCase
-from levelupapi.models import GameType, Event, game_type
+from levelupapi.models import GameType, Event
 
 class EventTests(APITestCase):
     def setUp(self):
@@ -125,8 +123,6 @@ class EventTests(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
         response = self.client.put(f"/events/{event.id}", new_data, format="json")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-        # TODO: does not show updated data
         
         response = self.client.get(f"/events/{event.id}")
         json_response = json.loads(response.content)
@@ -179,11 +175,9 @@ class EventTests(APITestCase):
     #     event.game_id = 1
     #     event.save()
         
-    #     join_data = {
-    #         "event": event.id
-    #     }
-
-    #     url = "/events/{event.id}/signup"
+    #     join_data = event.id
+        
+    #     new_url = "/events/{event.id}/signup"
     #     self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
-    #     response = self.client.post(url, join_data, format='json')
+    #     response = self.client.post(new_url)
     #     self.assertEqual(response.status_code, status.HTTP_201_CREATED)
