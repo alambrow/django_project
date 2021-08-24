@@ -27,26 +27,6 @@ def usergame_list(request):
 
             dataset = db_cursor.fetchall()
 
-            # Take the flat data from the database, and build the
-            # following data structure for each gamer.
-            #
-            # {
-            #     1: {
-            #         "id": 1,
-            #         "full_name": "Admina Straytor",
-            #         "games": [
-            #             {
-            #                 "id": 1,
-            #                 "title": "Foo",
-            #                 "maker": "Bar Games",
-            #                 "skill_level": 3,
-            #                 "number_of_players": 4,
-            #                 "game_type_id": 2
-            #             }
-            #         ]
-            #     }
-            # }
-
             games = []
 
             for row in dataset:
